@@ -99,12 +99,18 @@ namespace MailHelper
                 if (To != null)
                     To.ForEach(address => mail.To.Add(address));
 
+                if (Cc != null)
+                    Cc.ForEach(address => mail.To.Add(address));
+
+                if (Bcc != null)
+                    Bcc.ForEach(address => mail.To.Add(address));
+
                 var smtpClient = new SmtpClient
                 {
                     Host = Host,
                     Port = Port,
                     EnableSsl = EnableSsl,
-                    Credentials = new NetworkCredential(UserName, Password)
+                    Credentials = new NetworkCredential(UserName, Password),
                 };
 
                 smtpClient.Send(mail);
