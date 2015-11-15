@@ -25,14 +25,11 @@ namespace MailHelper
                     Body = Body
                 };
 
-                if (To != null)
-                    To.ForEach(address => mail.To.Add(address));
+                To?.ForEach(address => mail.To.Add(address));
 
-                if (Cc != null)
-                    Cc.ForEach(address => mail.To.Add(address));
+                Cc?.ForEach(address => mail.To.Add(address));
 
-                if (Bcc != null)
-                    Bcc.ForEach(address => mail.To.Add(address));
+                Bcc?.ForEach(address => mail.To.Add(address));
 
                 var smtpClient = new SmtpClient
                 {

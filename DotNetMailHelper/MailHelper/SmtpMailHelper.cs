@@ -34,7 +34,7 @@ namespace MailHelper
                 : new MailAddress(ConfigurationManager.AppSettings.Get("MailFrom"));
 
             IsBodyHtml = string.IsNullOrEmpty(ConfigurationManager.AppSettings.Get("MailIsBodyHtml")) ||
-                         bool.Parse(ConfigurationManager.AppSettings.Get("IsBodyHtml"));
+                         bool.Parse(ConfigurationManager.AppSettings.Get("MailIsBodyHtml"));
         }
 
         public string Host { get; set; }
